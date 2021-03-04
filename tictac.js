@@ -1,9 +1,3 @@
-///on click with if/else statement.
-  //once clicked ad class of player to cell
-  //that player class will have an image atttached to ad to the div
-  //switch player
-  //check winner
-  //Reset game
 
 const gameState = {
     players: ['x', 'o'],
@@ -71,17 +65,21 @@ function checkWinner () {
 $('.board').on('click', '.cell', function () {
 
 
-    if (gameState.current === 'x') {
-        $(this).addClass('xx').addClass('taken').removeClass('empty')
-    } else if (gameState.current === 'o'){
-        $(this).addClass('doh').addClass('taken').removeClass('empty')
-    }
+    
+    if ($(this).hasClass('empty')) {
         
-        checkWinner ()
+        if (gameState.current === 'x') {
+            $(this).addClass('xx').addClass('taken').removeClass('empty')
+           
+        } else if (gameState.current === 'o'){
+            $(this).addClass('doh').addClass('taken').removeClass('empty')
+            
+        }
         changePlayer ()
+
+    }
+        checkWinner ()
+        
         
 
 })
-
-
- 
